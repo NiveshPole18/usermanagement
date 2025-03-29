@@ -72,6 +72,10 @@ const Profile = () => {
     }
   }
 
+  const handleLogout = () => {
+    logout()
+  }
+
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-bold">Profile</h1>
@@ -172,6 +176,8 @@ const Profile = () => {
           <Button variant="destructive">Delete Account</Button>
         </CardFooter>
       </Card>
+
+      <Button onClick={handleLogout}>Logout</Button>
     </div>
   )
 }

@@ -55,9 +55,9 @@ const Users = () => {
     }
   }
 
-  const handleDeleteUser = async (id: string) => {
+  const handleDeleteUser = async (userId: string) => {
     try {
-      await api.delete(`/users/${id}`)
+      await api.delete(`/users/${userId}`)
       toast.success("User deleted successfully")
       fetchUsers()
     } catch (error) {
@@ -129,7 +129,7 @@ const Users = () => {
               </thead>
               <tbody className="divide-y divide-white/[0.08]">
                 {filteredUsers.map((user) => (
-                  <tr key={user.id} className="hover:bg-white/[0.02]">
+                  <tr key={user._id} className="hover:bg-white/[0.02]">
                     <td className="py-3 px-4 text-white">{user.name}</td>
                     <td className="py-3 px-4 text-slate-300">{user.email}</td>
                     <td className="py-3 px-4">

@@ -91,7 +91,12 @@ export const UserModal = ({
       userData.password = password
     }
 
-    onSave(userData)
+    setIsLoading(true)
+    try {
+      onSave(userData)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -170,7 +175,9 @@ export const UserModal = ({
             <Button type="button" variant="outline" onClick={onClose}>
               Cancel
             </Button>
-            <Button type="submit">{isCreating ? "Create" : "Save changes"}</Button>
+            <Button type="submit" disabled={isLoading}>
+              {isCreating ? "Create" : "Save changes"}
+            </Button>
           </DialogFooter>
         </form>
       </DialogContent>

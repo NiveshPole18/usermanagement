@@ -22,7 +22,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   return <Layout>{children}</Layout>
 }
 
-function App() {
+const App = () => {
   return (
     <Router>
       <AuthProvider>
