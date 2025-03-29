@@ -28,11 +28,11 @@ next-env.d.ts
 
 # Dependencies
 node_modules
-.pnp
+/.pnp
 .pnp.js
 
 # Testing
-coverage
+/coverage
 
 # Misc
 .DS_Store
@@ -43,7 +43,7 @@ coverage
 .env.production.local
 
 # Editor directories
-.idea
-.vscode
+.idea/
+.vscode/
 *.swp
 *.swo
