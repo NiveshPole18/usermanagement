@@ -67,11 +67,8 @@ export const UserModal = ({
     }
     
     if (!name) newErrors.name = 'Name is required'
-    if (!email) newErrors.email = 'Email is required'
-    else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = 'Invalid email format'
-    }
-
+    if (!email) newErrors.email = 'Invalid email'
+    
     setErrors(newErrors)
     return !Object.values(newErrors).some(error => error)
   }
@@ -115,6 +112,7 @@ export const UserModal = ({
                 Name
               </Label>
               <Input id="name" value={name} onChange={(e) => setName(e.target.value)} className="col-span-3" required />
+              {errors.name && <span className="text-red-500 text-sm">{errors.name}</span>}
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="email" className="text-right">
@@ -128,6 +126,7 @@ export const UserModal = ({
                 className="col-span-3"
                 required
               />
+              {errors.email && <span className="text-red-500 text-sm">{errors.email}</span>}
             </div>
             {isCreating && (
               <div className="grid grid-cols-4 items-center gap-4">

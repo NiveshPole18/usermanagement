@@ -6,7 +6,7 @@ import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { UserModal } from "../components/UserModal"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select"
-import { Search, Edit2, UserPlus } from "lucide-react"
+import { Search, Edit2, UserPlus, Trash2 } from "lucide-react"
 import type { User } from "../types"
 import api from "../services/api"
 import { toast } from "react-hot-toast"
@@ -46,7 +46,7 @@ const Users = () => {
       if (isCreating) {
         await api.post("/api/users", userData)
       } else {
-        await api.put(`/api/users/${selectedUser?.id}`, userData)
+        await api.put(`/api/users/${selectedUser?._id}`, userData)
       }
       fetchUsers()
       setIsModalOpen(false)
@@ -158,6 +158,14 @@ const Users = () => {
                         className="text-slate-300 hover:text-white hover:bg-white/[0.04]"
                       >
                         <Edit2 className="h-4 w-4" />
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleDeleteUser(user._id)}
+                        className="text-slate-300 hover:text-white hover:bg-white/[0.04]"
+                      >
+                        <Trash2 className="h-4 w-4" />
                       </Button>
                     </td>
                   </tr>
